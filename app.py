@@ -20,6 +20,7 @@ import pandas as pd
 import plotly.express as px
 import streamlit as st
 from google.cloud import bigquery
+from google.oauth2 import service_account
 
 
 st.set_page_config(
@@ -83,6 +84,17 @@ def _setting(name: str, default: Optional[str] = None) -> Optional[str]:
     return default
 
 
+def _secret_section(name: str) -> Optional[Dict[str, str]]:
+    try:
+        if name in st.secrets:
+            return dict(st.secrets.get(name))
+    except Exception:
+        # Local development can use Application Default Credentials only.
+        pass
+
+    return None
+
+
 def load_config() -> DemoConfig:
     project_id = _setting("CONTENT_DEMO_GCP_PROJECT_ID")
     dataset_id = _setting("CONTENT_DEMO_BQ_DATASET", "content_intelligence_demo")
@@ -118,7 +130,12 @@ def table_ref(config: DemoConfig, object_name: str) -> str:
 
 @st.cache_resource
 def get_bigquery_client(project_id: str, location: str) -> bigquery.Client:
-    # Uses Google Application Default Credentials. No service-account JSON is read by the app.
+    service_account_info = _secret_section("gcp_service_account")
+    if service_account_info:
+        credentials = service_account.Credentials.from_service_account_info(service_account_info)
+        return bigquery.Client(project=project_id, credentials=credentials, location=location)
+
+    # Local fallback: uses Google Application Default Credentials.
     return bigquery.Client(project=project_id, location=location)
 
 
