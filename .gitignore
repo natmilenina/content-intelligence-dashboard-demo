@@ -1,0 +1,39 @@
+# macOS
+.DS_Store
+
+# Python generated files / environments
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Environment variables / Streamlit secrets
+.env
+.env.*
+.streamlit/secrets.toml
+
+# Credentials and private keys
+service_account*.json
+*service-account*.json
+credentials*.json
+dialogflow-*.json
+*.pem
+*.key
+
+# Local tooling metadata
+anaconda_projects/
+
+# Databases / logs / exports
+*.db
+*.sqlite
+*.sqlite3
+*.log
+*.xlsx
+*.xls
+*.parquet
+
+# CSVs are treated as private by default...
+*.csv
+
+# ...except this specific sample, which you have confirmed is safe
+!sample_data.csv
