@@ -1,7 +1,7 @@
 """
 Sanitized Content Intelligence Dashboard demo.
 
-This is the portfolio-ready baseline derived from the canonical working dashboard.
+This is the portfolio project derived from the canonical working dashboard.
 It is intentionally read-only and BigQuery-backed from the start:
 
 synthetic support interactions -> BigQuery tables/views -> GoogleSQL -> Streamlit
@@ -418,6 +418,16 @@ def apply_filters(df: pd.DataFrame, filters: Dict) -> pd.DataFrame:
             filtered = filtered[filtered[column].astype(str).isin(selected)]
     return filtered
 
+def render_demo_guide():
+    st.info(
+        """
+        **How to read this demo**
+
+        This demo shows how scattered AI support signals can be turned into a review & triage workflow.
+
+        It combines synthetic support conversations, expert feedback, knowledge gaps, and recurring issue patterns so a team can decide whether a failure needs a content update, prompt change, routing fix, escalation rule, or product follow-up.
+        """
+    )
 
 def render_summary_metrics(df: pd.DataFrame):
     col1, col2, col3, col4, col5 = st.columns(5)
@@ -572,10 +582,13 @@ def render_charts(df: pd.DataFrame):
 
 def render_patterns(df: pd.DataFrame, recurring_df: pd.DataFrame):
     st.subheader("Knowledge Gap Insights")
-    st.caption("SQL recurring-query summary from BigQuery. Semantic grouping is a planned next iteration.")
+    st.caption(
+    "Global recurring-query summary from BigQuery for the selected date window. "
+    "Sidebar filters affect the review charts below, but this table shows overall recurring patterns."
+    "Semantic grouping is a planned next iteration.")
 
     if not recurring_df.empty:
-        st.markdown("**Recurring problematic query groups from BigQuery**")
+        st.markdown("**Global recurring problematic query groups**")
         st.dataframe(recurring_df, use_container_width=True, hide_index=True)
     else:
         st.info("No recurring query groups returned by the BigQuery view.")
@@ -656,7 +669,7 @@ def render_all_conversations(df: pd.DataFrame):
 
 def main():
     st.title("Content Intelligence Dashboard")
-    st.caption("Synthetic BigQuery-backed demo for support quality review and knowledge-gap investigation.")
+    st.caption("A synthetic demo of the review layer behind AI support: customer questions, bot failures, expert feedback, knowledge gaps, and what to fix next.")
 
     config = load_config()
 
@@ -671,7 +684,7 @@ def main():
     except Exception as exc:
         st.error("Could not read the configured BigQuery demo views.")
         st.code(str(exc), language="text")
-        st.info("Run the setup steps in docs/DEMO_RUNBOOK.md against your personal Google Cloud project.")
+        st.info("See README.md for setup instructions.")
         st.stop()
 
     selected_range = st.sidebar.date_input(
@@ -724,6 +737,7 @@ def main():
     filtered_review = apply_filters(review_df, filters)
     filtered_conversations = apply_filters(all_conv_df, filters)
 
+    render_demo_guide()
     render_summary_metrics(filtered_review)
     st.divider()
 
