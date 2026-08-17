@@ -131,7 +131,7 @@ def main():
     print("BigQuery demo setup complete.")
     print(f"Set CONTENT_DEMO_GCP_PROJECT_ID={args.project_id}")
     print(f"Set CONTENT_DEMO_BQ_DATASET={args.dataset_id}")
-    print("Run: streamlit run ton_content_dashboard_gh9082026_canonical.py")
+    print("Run: streamlit run app.py")
 
 
 if __name__ == "__main__":
