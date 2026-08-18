@@ -177,7 +177,7 @@ Cluster output should include:
 * Clusters can be compared against the golden dataset.
 * The feature is documented as experimental.
 
-## CID-007 Add cluster detail view
+## CID-006 Add cluster detail view
 
 **Status:** Planned
 **Priority:** Medium / High
@@ -214,7 +214,7 @@ Add a cluster detail view showing:
 
 # Epic 2: Synthetic dataset and golden query expansion
 
-## CID-008 — Expand synthetic storylines into golden query dataset
+## CID-007 — Expand synthetic storylines into golden query dataset
 
 **Status:** Planned
 **Priority:** High
@@ -253,7 +253,7 @@ Each row should include:
 
 ---
 
-## CID-009 Add golden dataset loading script
+## CID-008 Add golden dataset loading script
 
 **Status:** Planned
 **Priority:** Medium
@@ -278,7 +278,7 @@ Add a script to load the golden query dataset into BigQuery or prepare it for lo
 
 # Epic 3: Improve ownership and triage logic
 
-## CID-010 Add `fix_type` concept
+## CID-009 Add `fix_type` concept
 
 **Status:** Planned
 **Priority:** High
@@ -312,7 +312,7 @@ Suggested values:
 
 ---
 
-## CID-011 Add fix-type summary metrics
+## CID-010 Add fix-type summary metrics
 
 **Status:** Planned
 **Priority:** Medium
@@ -337,7 +337,7 @@ Add a chart or summary table showing review items by `fix_type`.
 
 # Epic 4: Follow-up draft generation
 
-## CID-012 Add static docs issue template
+## CID-011 Add static docs issue template
 
 **Status:** Planned
 **Priority:** High
@@ -375,7 +375,7 @@ Template sections:
 
 ---
 
-## CID-013 Generate Markdown docs issue draft from selected rows
+## CID-012 Generate Markdown docs issue draft from selected rows
 
 **Status:** Planned
 **Priority:** High
@@ -421,7 +421,7 @@ Output:
 
 ---
 
-## CID-014 Generate product feedback summary draft
+## CID-013 Generate product feedback summary draft
 
 **Status:** Planned
 **Priority:** Medium
@@ -455,7 +455,7 @@ Template sections:
 
 # Epic 5: Retesting and validation
 
-## CID-015 Export selected rows as retest set
+## CID-014 Export selected rows as retest set
 
 **Status:** Planned
 **Priority:** Medium / High
@@ -493,7 +493,7 @@ Suggested fields:
 
 ---
 
-## CID-016 Add before/after validation view
+## CID-015 Add before/after validation view
 
 **Status:** Planned
 **Priority:** Medium
@@ -524,9 +524,9 @@ Possible comparisons:
 
 ---
 
-# Epic 8: Source coverage and knowledge freshness
+# Epic 6: Source coverage and knowledge freshness
 
-## CID-017 Add source coverage view
+## CID-016 Add source coverage view
 
 **Status:** Planned
 **Priority:** Medium
@@ -559,7 +559,7 @@ Show:
 
 ---
 
-## CID-018 Add source freshness fields to future data model
+## CID-017 Add source freshness fields to future data model
 
 **Status:** Planned
 **Priority:** Medium
@@ -590,9 +590,9 @@ Extend future data model with optional source metadata:
 
 ---
 
-# Epic 9: Implementation readiness
+# Epic 7: Implementation readiness
 
-## CID-019 Add implementation readiness view
+## CID-018 Add implementation readiness view
 
 **Status:** Planned
 **Priority:** Medium
@@ -625,9 +625,9 @@ Signals may include:
 
 ---
 
-# Epic 10: Optional external workflow integrations
+# Epic 8: Optional external workflow integrations
 
-## CID-020 Optional GitHub issue creation
+## CID-019 Optional GitHub issue creation
 
 **Status:** Later
 **Priority:** Low / Medium
@@ -651,7 +651,7 @@ Add optional GitHub issue creation behind explicit configuration.
 
 ---
 
-## CID-021 Optional Notion / Linear / Jira draft export
+## CID-020 Optional Notion / Linear / Jira draft export
 
 **Status:** Later
 **Priority:** Low / Medium
@@ -680,7 +680,7 @@ Initial version should generate Markdown only.
 
 ---
 
-## CID-022 Optional docs PR draft
+## CID-021 Optional docs PR draft
 
 **Status:** Later
 **Priority:** Low
@@ -707,41 +707,41 @@ Explore PR draft generation after issue drafts and source mapping are stable.
 ### Phase 1 — Make the current dashboard easier to investigate
 1. CID-001 — Add keyword and keyphrase search
 2. CID-002 — Add search result count and visible search state
-3. CID-010 — Add fix_type concept
-4. CID-011 — Add fix-type summary metrics
+3. CID-009 — Add fix_type concept
+4. CID-010 — Add fix-type summary metrics
 ### Phase 2 — Prepare follow-up workflow from current review data
-5. CID-012 — Add static docs issue template
-6. CID-013 — Generate Markdown docs issue draft from selected rows
-7. CID-014 — Generate product feedback summary draft
-8. CID-015 — Export selected rows as retest set
+5. CID-011 — Add static docs issue template
+6. CID-012 — Generate Markdown docs issue draft from selected rows
+7. CID-013 — Generate product feedback summary draft
+8. CID-014 — Export selected rows as retest set
 ### Phase 3 — Expand the synthetic dataset for semantic work
-9. CID-008 — Expand synthetic storylines into golden query dataset
-10. CID-009 — Add golden dataset loading script
+9. CID-007 — Expand synthetic storylines into golden query dataset
+10. CID-008 — Add golden dataset loading script
 ### Phase 4 — Add semantic investigation and clustering
 11. CID-003 — Add semantic search experiment
 12. CID-004 — Compare keyword search vs semantic search
 13. CID-005 — Add semantic query clusters
-14. CID-007 — Add cluster detail view
+14. CID-006 — Add cluster detail view
 ### Phase 5 — Add validation and source-quality views
-15. CID-016 — Add before/after validation view
-16. CID-017 — Add source coverage view
-17. CID-018 — Add source freshness fields to future data model
+15. CID-015 — Add before/after validation view
+16. CID-016 — Add source coverage view
+17. CID-017 — Add source freshness fields to future data model
 ### Phase 6 — Add rollout / implementation-level view
-18. CID-019 — Add implementation readiness view
+18. CID-018 — Add implementation readiness view
 ### Phase 7 — Optional external workflow integrations
-19. CID-021 — Optional Notion / Linear / Jira draft export
-20. CID-020 — Optional GitHub issue creation
-21. CID-022 — Optional docs PR draft
+19. CID-020 — Optional Notion / Linear / Jira draft export
+20. CID-019 — Optional GitHub issue creation
+21. CID-021 — Optional docs PR draft
 
 ### Dependency notes
 * CID-001 before CID-002: search needs to exist before search state/counts matter.
-* CID-010 before CID-011 / CID-013 / CID-014 / CID-015 / CID-019: fix_type becomes a core field for summaries, drafts, retest sets, and readiness logic.
-* CID-012 before CID-013: the static docs issue template should exist before generating issue drafts from rows.
-* CID-008 before CID-003 / CID-004 / CID-005 / CID-007: semantic search and clustering need richer query variants and expected labels.
-* CID-005 before CID-007: cluster detail view depends on cluster output.
-* CID-013 before CID-020 / CID-022: Markdown draft generation should work before any optional GitHub issue creation or PR draft logic.
-* CID-015 before CID-016: retest exports make before/after validation more meaningful.
-* CID-017 before CID-018 if staying practical-first: source coverage can be added using current source IDs; freshness metadata can come later.
-* CID-019 after fix type, retest, clustering, and validation: implementation readiness needs enough signals to summarize meaningfully.
-* CID-020 / CID-021 / CID-022 stay later: the public demo should remain read-only until draft generation is stable and clearly separated from external write actions.
+* CID-009 before CID-010 / CID-012 / CID-013 / CID-014 / CID-018: fix_type becomes a core field for summaries, drafts, retest sets, and readiness logic.
+* CID-011 before CID-012: the static docs issue template should exist before generating issue drafts from rows.
+* CID-007 before CID-003 / CID-004 / CID-005 / CID-006: semantic search and clustering need richer query variants and expected labels.
+* CID-005 before CID-006: cluster detail view depends on cluster output.
+* CID-012 before CID-019 / CID-021: Markdown draft generation should work before any optional GitHub issue creation or PR draft logic.
+* CID-014 before CID-015: retest exports make before/after validation more meaningful.
+* CID-016 before CID-017 if staying practical-first: source coverage can be added using current source IDs; freshness metadata can come later.
+* CID-018 after fix type, retest, clustering, and validation: implementation readiness needs enough signals to summarize meaningfully.
+* CID-019 / CID-020 / CID-021 stay later: the public demo should remain read-only until draft generation is stable and clearly separated from external write actions.
 ---
