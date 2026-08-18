@@ -32,8 +32,8 @@ anaconda_projects/
 *.xls
 *.parquet
 
-# CSVs are treated as private by default...
+# CSVs
 *.csv
 
-# ...except this specific sample, which you have confirmed is safe
+# except specific data sample
 !sample_data.csv
